@@ -68,9 +68,12 @@ public class NoteRepository {
 
 	public boolean exists(int noteId) {
 		Optional<Note> note=noteList.stream().filter(n->n.getNoteId()==noteId).findFirst();
-		if(note.get()!=null){
+		if(note.isPresent()){
 			return true;
 		}
-		return false;
+		else {
+			return false;
+		}
+	
 	}
 }
