@@ -3,8 +3,6 @@ package com.stackroute.keepnote.controller;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -83,7 +81,6 @@ public class NoteController {
 		if(!noteRepository.exists(note.getNoteId())) {
 			noteRepository.addNote(note);
 		}
-		//noteList.add(note);
 		List<Note> noteList=noteRepository.getAllNotes();
 		model.addAttribute("noteList", noteList);
 		return "index";

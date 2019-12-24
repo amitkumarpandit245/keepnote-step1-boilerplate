@@ -50,7 +50,7 @@ public class NoteRepository {
 
 	public boolean deleteNote(int noteId) {
 		/* Use list iterator to find matching note id and remove it from the list */
-		noteList=(ArrayList)noteList.stream().filter(n-> n.getNoteId()!=noteId).collect(Collectors.toList());
+		noteList=noteList.stream().filter(n-> n.getNoteId()!=noteId).collect(Collectors.toList());
 		return false;
 	}
 
@@ -68,12 +68,6 @@ public class NoteRepository {
 
 	public boolean exists(int noteId) {
 		Optional<Note> note=noteList.stream().filter(n->n.getNoteId()==noteId).findFirst();
-		if(note.isPresent()){
-			return true;
-		}
-		else {
-			return false;
-		}
-	
+		return note.isPresent();
 	}
 }
